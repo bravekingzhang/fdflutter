@@ -4,7 +4,7 @@ class ApiService {
   final Dio _dio = Dio();
 
   ApiService() {
-    _dio.options.baseUrl = 'https://api.example.com';
+    _dio.options.baseUrl = 'https://jsonplaceholder.typicode.com';
     _dio.interceptors.add(LogInterceptor(responseBody: true));
   }
 
