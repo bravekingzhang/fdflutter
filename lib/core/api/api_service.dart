@@ -17,5 +17,15 @@ class ApiService {
     return _dio.post(path, data: data);
   }
 
-  // Add other HTTP methods as needed (put, delete, etc.)
+  Future<Response> put(String path, {dynamic data}) async {
+    return _dio.put(path, data: data);
+  }
+
+  Future<Response> patch(String path, {dynamic data}) async {
+    return _dio.patch(path, data: data);
+  }
+
+  Future<Response> delete(String path) async {
+    return _dio.delete(path);
+  }
 }

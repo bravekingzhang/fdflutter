@@ -7,4 +7,14 @@ class NetworkInfo {
     var connectivityResult = await _connectivity.checkConnectivity();
     return connectivityResult != ConnectivityResult.none;
   }
+
+  Future<bool> get isConnectedWifi async {
+    var connectivityResult = await _connectivity.checkConnectivity();
+    return connectivityResult == ConnectivityResult.wifi;
+  }
+
+  Future<bool> get isConnectedMobile async {
+    var connectivityResult = await _connectivity.checkConnectivity();
+    return connectivityResult == ConnectivityResult.mobile;
+  }
 }
