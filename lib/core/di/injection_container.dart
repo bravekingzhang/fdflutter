@@ -1,10 +1,14 @@
 import 'package:get_it/get_it.dart';
 
 import 'package:fdflutter/core/api/api_service.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 final GetIt locator = GetIt.instance;
 
-void setupLocator() {
+initializeDependencyInjection() async {
+  // Obtain shared preferences.
+  final _prefs = await SharedPreferences.getInstance();
   locator.registerLazySingleton(() => ApiService());
+  locator.registerLazySingleton(() => _prefs);
   // Register other services and repositories as needed
 }

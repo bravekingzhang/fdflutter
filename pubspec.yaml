@@ -47,6 +47,8 @@ dependencies:
   hive: ^2.2.3
   riverpod_annotation: ^2.3.4
   hive_generator: ^2.0.1
+  tdesign_flutter: ^0.1.2
+  adaptive_theme: ^3.6.0
 
 dev_dependencies:
   flutter_test:

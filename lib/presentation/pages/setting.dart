@@ -1,6 +1,8 @@
 import 'package:fdflutter/core/localization/config.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localization/flutter_localization.dart';
+import 'package:tdesign_flutter/tdesign_flutter.dart';
+import 'package:adaptive_theme/adaptive_theme.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
@@ -15,67 +17,79 @@ class _SettingsScreenState extends State<SettingsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(AppLocale.title.getString(context))),
+      appBar:
+          AppBar(title: Text(AppLocale.settingPageTitle.getString(context))),
       body: Container(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                Expanded(
-                  child: ElevatedButton(
-                    child: const Text('English'),
-                    onPressed: () {
-                      _localization.translate('en');
-                    },
-                  ),
+            TDText(
+              '01 选择语言',
+              font: TDTheme.of(context).fontTitleLarge,
+              textColor: TDTheme.of(context).fontGyColor1,
+            ),
+            const SizedBox(height: 16),
+            TDRadioGroup(
+              onRadioGroupChange: (selectedId) => _localization.translate(
+                selectedId ?? 'en',
+              ),
+              selectId: _localization.currentLocale!.languageCode,
+              cardMode: true,
+              direction: Axis.horizontal,
+              directionalTdRadios: const [
+                TDRadio(
+                  id: 'en',
+                  title: '英文',
+                  cardMode: true,
                 ),
-                const SizedBox(width: 8.0),
-                Expanded(
-                  child: ElevatedButton(
-                    child: const Text('中文'),
-                    onPressed: () {
-                      _localization.translate('zh');
-                    },
-                  ),
+                TDRadio(
+                  id: 'zh',
+                  title: '中文',
+                  cardMode: true,
                 ),
-                const SizedBox(width: 8.0),
-                Expanded(
-                  child: ElevatedButton(
-                    child: const Text('日本語'),
-                    onPressed: () {
-                      _localization.translate('ja', save: false);
-                    },
-                  ),
+                TDRadio(
+                  id: 'ja',
+                  title: '小日子',
+                  cardMode: true,
                 ),
               ],
             ),
-            const SizedBox(height: 16.0),
-            ItemWidget(
-              title: 'Current Language',
-              content: _localization.getLanguageName(),
+            const SizedBox(height: 16),
+            TDText(
+              '02 主体模式',
+              font: TDTheme.of(context).fontTitleLarge,
+              textColor: TDTheme.of(context).fontGyColor1,
             ),
-            ItemWidget(
-              title: 'Font Family',
-              content: _localization.fontFamily,
-            ),
-            ItemWidget(
-              title: 'Locale Identifier',
-              content: _localization.currentLocale.localeIdentifier,
-            ),
-            ItemWidget(
-              title: 'String Format',
-              content: Strings.format(
-                'Hello %a, this is me %a.',
-                ['Dara', 'Sopheak'],
-              ),
-            ),
-            ItemWidget(
-              title: 'Context Format String',
-              content: context.formatString(
-                AppLocale.thisIs,
-                [AppLocale.title, 'LATEST'],
-              ),
+            const SizedBox(height: 16),
+            TDRadioGroup(
+              onRadioGroupChange: (selectedId) =>
+                  AdaptiveTheme.of(context).setThemeMode(selectedId == 'Dark'
+                      ? AdaptiveThemeMode.dark
+                      : selectedId == 'Light'
+                          ? AdaptiveThemeMode.light
+                          : AdaptiveThemeMode.system),
+              selectId: AdaptiveTheme.of(context).mode.modeName,
+              cardMode: true,
+              direction: Axis.horizontal,
+              directionalTdRadios: const [
+                TDRadio(
+                  id: 'Dark',
+                  title: '暗黑',
+                  cardMode: true,
+                ),
+                TDRadio(
+                  id: 'Light',
+                  title: '白天',
+                  cardMode: true,
+                ),
+                TDRadio(
+                  id: 'System',
+                  title: '更随系统',
+                  cardMode: true,
+                ),
+              ],
             ),
           ],
         ),

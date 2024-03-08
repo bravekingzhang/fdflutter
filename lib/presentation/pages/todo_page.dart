@@ -14,7 +14,7 @@ class TodoPage extends ConsumerWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Todo Page'),
+        title: Text(AppLocale.todoPageTitle.getString(context)),
       ),
       body: todoList.when(
         data: (todos) => ListView.builder(

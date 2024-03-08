@@ -9,6 +9,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "67.0.0"
+  adaptive_theme:
+    dependency: "direct main"
+    description:
+      name: adaptive_theme
+      sha256: f4ee609b464e5efc68131d9d15ba9aa1de4e3b5ede64be17781c6e19a52d637d
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.6.0"
   analyzer:
     dependency: transitive
     description:
@@ -294,6 +302,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_easyrefresh:
+    dependency: transitive
+    description:
+      name: flutter_easyrefresh
+      sha256: "5d161ee5dcac34da9065116568147d742dd25fb9bff3b10024d9054b195087ad"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.2"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -323,6 +339,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.10"
+  flutter_swiper_null_safety:
+    dependency: transitive
+    description:
+      name: flutter_swiper_null_safety
+      sha256: "5a855e0080d035c08e82f8b7fd2f106344943a30c9ab483b2584860a2f22eaaf"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.2"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -826,6 +850,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.0"
+  tdesign_flutter:
+    dependency: "direct main"
+    description:
+      name: tdesign_flutter
+      sha256: "0eafd0f40fd3dc60874a95c78b418410719e7c84bfa2620d2c4370373ceafe5c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.2"
   term_glyph:
     dependency: transitive
     description:

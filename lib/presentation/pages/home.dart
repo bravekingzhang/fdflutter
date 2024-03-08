@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:routemaster/routemaster.dart';
 
 class HomePage extends StatelessWidget {
@@ -6,21 +7,27 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final tabState = CupertinoTabPage.of(context);
+    final tabPage = TabPage.of(context);
 
-    return CupertinoTabScaffold(
-      controller: tabState.controller,
-      tabBuilder: tabState.tabBuilder,
-      tabBar: CupertinoTabBar(
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: tabPage.controller.index,
+        onTap: tabPage.controller.animateTo,
         items: const [
           BottomNavigationBarItem(
-            label: 'Todos',
             icon: Icon(CupertinoIcons.list_bullet),
+            label: 'Todos',
           ),
           BottomNavigationBarItem(
-            label: 'Settings',
             icon: Icon(CupertinoIcons.settings),
+            label: 'Settings',
           ),
+        ],
+      ),
+      body: TabBarView(
+        controller: tabPage.controller,
+        children: [
+          for (final stack in tabPage.stacks) PageStackNavigator(stack: stack),
         ],
       ),
     );

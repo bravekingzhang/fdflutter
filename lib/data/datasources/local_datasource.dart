@@ -1,10 +1,12 @@
 import 'dart:io';
 
 import 'package:fdflutter/domain/entities/todo_entity.dart';
+import 'package:fdflutter/domain/entities/user_entity.dart';
 import 'package:hive/hive.dart';
 
 class LocalDataSource {
   static const keyTodoList = 'keyTodoList';
+  static const keyUser = 'keyUser';
   Future<void> save(String key, value) async {
     var box = await Hive.openBox(key);
 
@@ -20,9 +22,10 @@ class LocalDataSource {
   // Add other methods for different data types as needed
 }
 
-initHive() async {
+initializeHive() async {
   var path = Directory.current.path;
   Hive
     ..init(path)
-    ..registerAdapter(TodoEntityAdapter());
+    ..registerAdapter(TodoEntityAdapter())
+    ..registerAdapter(UserAdapter());
 }
