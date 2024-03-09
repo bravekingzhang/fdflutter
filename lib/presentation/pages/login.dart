@@ -28,6 +28,27 @@ class LoginPage extends ConsumerWidget {
                   textColor: TDTheme.of(context).brandNormalColor,
                 ),
                 const SizedBox(height: 46),
+                 TDButton(
+                  size: TDButtonSize.large,
+                  shape: TDButtonShape.rectangle,
+                  theme: TDButtonTheme.defaultTheme,
+                  onTap: () {
+                    //login
+                    Routemaster.of(context).push('/');
+                  },
+                  child:  Text('已登录 ${data.username}，直接跳转到首页'),
+                ),
+              ],
+            ),
+            error: (error, stackTrace) =>  Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                TDText(
+                  '用户登录',
+                  font: TDTheme.of(context).fontHeadlineLarge,
+                  textColor: TDTheme.of(context).brandNormalColor,
+                ),
+                const SizedBox(height: 46),
                 TDInput(
                   leftLabel: '用户名',
                   required: true,
@@ -88,19 +109,8 @@ class LoginPage extends ConsumerWidget {
                     ),
                   ],
                 ),
-                TDButton(
-                  size: TDButtonSize.large,
-                  shape: TDButtonShape.rectangle,
-                  theme: TDButtonTheme.defaultTheme,
-                  onTap: () {
-                    //login
-                    Routemaster.of(context).push('/');
-                  },
-                  child: const Text('已登录，直接跳转到首页'),
-                ),
               ],
             ),
-            error: (error, stackTrace) => Text(' $error'),
             loading: () => const TDLoading(
               size: TDLoadingSize.large,
               icon: TDLoadingIcon.activity,
