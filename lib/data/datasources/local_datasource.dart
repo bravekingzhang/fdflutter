@@ -1,8 +1,7 @@
-import 'dart:io';
-
 import 'package:fdflutter/domain/entities/todo_entity.dart';
 import 'package:fdflutter/domain/entities/user_entity.dart';
 import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 
 class LocalDataSource {
   static const keyTodoList = 'keyTodoList';
@@ -23,9 +22,10 @@ class LocalDataSource {
 }
 
 initializeHive() async {
-  var path = Directory.current.path;
+  // thanks  `亚·坤` for this suggestion
+  var dir = await getApplicationDocumentsDirectory();
   Hive
-    ..init(path)
+    ..init(dir.path)
     ..registerAdapter(TodoEntityAdapter())
     ..registerAdapter(UserAdapter());
 }

@@ -32,6 +32,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             const SizedBox(height: 16),
             TDRadioGroup(
+              key: GlobalKey(debugLabel: 'language'),
               onRadioGroupChange: (selectedId) => _localization.translate(
                 selectedId ?? 'en',
               ),
@@ -64,6 +65,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             ),
             const SizedBox(height: 16),
             TDRadioGroup(
+              key: GlobalKey(debugLabel: 'themeMode'),
               onRadioGroupChange: (selectedId) =>
                   AdaptiveTheme.of(context).setThemeMode(selectedId == 'Dark'
                       ? AdaptiveThemeMode.dark
