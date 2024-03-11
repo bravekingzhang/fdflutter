@@ -1,5 +1,6 @@
 # 对于 Flutter 快速开发框架的思考
 
+yet another flutter fast development framework
 
 要打造一个Flutter的快速开发框架，首先要思考的事情是一个快速开发框架需要照顾到哪些功能点，经过2天的思考，我大致整理了一下需要的能力：
 
@@ -195,5 +196,3 @@ fdflutter/
 - **`domain/`**: 领域层包含实体和用例，用于实现业务逻辑。
 - **`presentation/`**: 表示层包含页面和`Provider`，用于显示UI和管理状态。
 - **`test/`**: 测试目录包含各层的测试代码，使用**`flutter_test`**和**`mockito`**来编写测试。
-
-我想，感兴趣的朋友们，可以私信我交流，我后续会在 GitHub 上放出该flutter 快速开发框架的 template 地址。
