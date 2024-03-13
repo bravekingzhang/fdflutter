@@ -7,8 +7,8 @@ final GetIt locator = GetIt.instance;
 
 initializeDependencyInjection() async {
   // Obtain shared preferences.
-  final _prefs = await SharedPreferences.getInstance();
+  final prefs = await SharedPreferences.getInstance();
   locator.registerLazySingleton(() => ApiService());
-  locator.registerLazySingleton(() => _prefs);
+  locator.registerLazySingleton(() => prefs);
   // Register other services and repositories as needed
 }

@@ -4,10 +4,12 @@
     "datas",
     "datasource",
     "fdflutter",
+    "prefs",
     "riverpod",
     "routemaster",
     "tdesign",
     "todos",
-    "usecases"
+    "usecases",
+    "usercase"
   ]
 }

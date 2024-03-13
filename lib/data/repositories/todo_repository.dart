@@ -18,12 +18,6 @@ class TodoRepository {
   Future<List<TodoEntity>> loadTodoList() async {
     var localList = await _localDataSource
         .get(LocalDataSource.keyTodoList, defaultValue: []);
-    logger.d(localList.runtimeType); // List<dynamic>
-    logger.d(localList
-        is List<TodoEntity>); // false ,because localList is not List<dynamic>
-    // cast localList to List<TodoEntity>
-    logger.d(localList is List); // true ,because localList is List<dynamic>
-
     return localList.cast<TodoEntity>();
   }
 

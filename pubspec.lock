@@ -339,6 +339,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.10"
+  flutter_settings_ui:
+    dependency: "direct main"
+    description:
+      name: flutter_settings_ui
+      sha256: aa371acae2f99b3348bf4e1a155f715dc146ac4cd410834f5bc44c3c12955a10
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.0.0"
   flutter_swiper_null_safety:
     dependency: transitive
     description:

@@ -52,6 +52,7 @@ dependencies:
   tdesign_flutter: ^0.1.2
   adaptive_theme: ^3.6.0
   path_provider: ^2.1.2
+  flutter_settings_ui: ^3.0.0
 
 dev_dependencies:
   flutter_test:
